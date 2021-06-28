@@ -47,8 +47,8 @@ $customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td><?= h($customer['company']) ?></td>
                             <td><?= h($customer['name']) ?></td>
                             <td><?= h($customer['email']) ?></td>
-                            <td><a href="edit.php" class="btn edit-btn">編集</a></td>
-                            <td><a href="delete.php" class="btn delete-btn">削除</a></td>
+                            <td><a href="edit.php?id=<?= h($customer['id']) ?>" class="btn edit-btn">編集</a></td>
+                            <td><a href="delete.php?id=<?= h($customer['id']) ?>" class="btn delete-btn">削除</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

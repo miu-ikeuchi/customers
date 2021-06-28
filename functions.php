@@ -60,13 +60,24 @@ function submitCustomersDate($company, $name, $email)
 }
 function createErrMsg($errors)
 {
-    $err_msg = "<ul class=\"errors\">\n";
-
     foreach ($errors as $error) {
-        $err_msg .= "<li>" . h($error) . "</li>\n";
+        $err_msg = h($error) ;
     }
-
-    $err_msg .= "</ul>\n";
-
     return $err_msg;
+}
+
+function deleteCustomer($id)
+{
+    $dbh = connectDb();
+
+    $sql = <<<EOM
+    DELETE FROM
+        customers
+    WHERE
+        id = :id
+    EOM;
+
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
 }
