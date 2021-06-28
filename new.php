@@ -11,11 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // フォームに入力されたデータを受け取る
     $company = filter_input(INPUT_POST, 'company');
     $name = filter_input(INPUT_POST, 'name');
-    $emeil = filter_input(INPUT_POST, 'email');
-    
+    $email = filter_input(INPUT_POST, 'email');
+
     // バリデーション
     $errors = insertValidate($company, $name, $email);
-    
+
     // エラーチェック
     if (empty($errors)) {
         // タスク登録処理の実行
@@ -43,11 +43,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <form action="" method="post">
                 <label for="company">会社名</label>
-                <input type="text" id="company" name="company">
+                <input type="text" id="company" name="company" value="<?php echo $company; ?>">
                 <label for="name">氏名</label>
-                <input type="text" id="name" name="name">
+                <input type="text" id="name" name="name" value="<?php echo $name; ?>">
                 <label for="email">メールアドレス</label>
-                <input type="email" id="email" name="email">
+                <input type="email" id="email" name="email" value="<?php echo $email; ?>">
                 <input type="submit" class="btn submit-btn" value="追加">
             </form>
             <a href="index.php" class="btn return-btn">戻る</a>
