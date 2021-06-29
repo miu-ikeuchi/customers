@@ -100,7 +100,7 @@ function updateCustomer($id, $company, $name, $email)
         customers
     SET
         company = :company,
-        name = :name
+        name = :name,
         email = :email
     WHERE
         id = :id
