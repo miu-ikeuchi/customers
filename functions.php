@@ -136,14 +136,14 @@ function findById($id)
 {
     $dbh = connectDb();
 
-    $sql = <<<EMO
+    $sql = <<<EOM
     SELECT
         *
     FROM
         customers
     WHERE
         id = :id;
-    EMO;
+    EOM;
 
     $stmt = $dbh->prepare($sql);
 
