@@ -22,6 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header('Location: index.php');
         exit;
     }
+    $customer['company'] = $company;
+    $customer['name'] = $name;
+    $customer['email'] = $email;
 }
 ?>
 <!DOCTYPE html>
@@ -39,14 +42,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <form action="" method="post">
                 <label for="company">会社名</label>
-                <input type="text" id="company" name="company"
-                value="<?php if (!empty($_POST['company'])) {echo $_POST['company'];} ?>">
+                <input type="text" id="company" name="company" value="<?= h($customer['company']) ?>">
                 <label for="name">氏名</label>
-                <input type="text" id="name" name="name"
-                value="<?php if( !empty($_POST['name']) ){ echo $_POST['name']; } ?>">
+                <input type="text" id="name" name="name" value="<?= h($customer['name']) ?>">
                 <label for="email">メールアドレス</label>
-                <input type="email" id="email" name="email"
-                value="<?php if( !empty($_POST['email']) ){ echo $_POST['email']; } ?>">
+                <input type="email" id="email" name="email" value="<?= h($customer['email']) ?>">
                 <input type="submit" class="btn submit-btn" value="更新">
             </form>
             <a href="index.php" class="btn return-btn">戻る</a>
