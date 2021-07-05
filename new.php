@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // エラーチェック
     if (empty($errors)) {
         // タスク登録処理の実行
-        submitCustomersDate($company, $name, $email);
+        addCustomer($company, $name, $email);
     }
 }
 

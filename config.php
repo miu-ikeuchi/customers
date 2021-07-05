@@ -7,3 +7,4 @@ define('PASSWORD', '1234');
 define('MSG_COMPANY_REQUIRED', '会社名を入力してください');
 define('MSG_NAME_REQUIRED', '氏名を入力してください');
 define('MSG_EMAIL_REQUIRED', 'メールアドレスを入力してください');
+define('MSG_UPDATE_REQUIRED', '変更内容がありません');
